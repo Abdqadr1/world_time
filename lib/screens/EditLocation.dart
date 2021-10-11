@@ -6,6 +6,21 @@ class EditLocation extends StatefulWidget {
 }
 
 class _EditLocationState extends State<EditLocation> {
+
+  void getData() async {
+    await Future.delayed(Duration(seconds: 3), () {
+      print ("after delayed");
+    });
+
+    print ("before delayed");
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

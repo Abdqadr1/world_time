@@ -10,10 +10,10 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    data = data.isNotEmpty ? data : ModalRoute.of(context).settings.arguments;
+    data = data.isNotEmpty ? data : ModalRoute.of(context)!.settings.arguments as Map;
     print(data);
     String bgImage = (data['isDayTime']) ? 'day.png': 'night.png';
-    Color bgColor = (data['isDayTime']) ? Colors.blue : Colors.indigo[800];
+    Color? bgColor = (data['isDayTime']) ? Colors.blue : Colors.indigo[800];
 
     return Scaffold(
       backgroundColor: bgColor,
@@ -38,6 +38,7 @@ class _HomeState extends State<Home> {
                             'flag': result['flag'],
                             'time':result['time'],
                             'isDayTime': result['isDayTime'],
+                            'dateString': result['dateString'],
                           };
                         });
                       },
@@ -67,6 +68,13 @@ class _HomeState extends State<Home> {
                     data["time"],
                     style: TextStyle(
                       fontSize: 60, color: Colors.white
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Text(
+                    data["dateString"],
+                    style: TextStyle(
+                        fontSize: 20, color: Colors.white70
                     ),
                   )
                 ],

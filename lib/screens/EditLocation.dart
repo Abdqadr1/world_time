@@ -32,22 +32,23 @@ class _EditLocationState extends State<EditLocation> {
         'location': worldTime.location,
         'flag': worldTime.flag,
         'time':worldTime.time,
-        'isDayTime': worldTime.isDayTime
+        'isDayTime': worldTime.isDayTime,
+        'dateString': worldTime.dateString
       });
     }
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit Location"),
+        title: Text("Change Current Location"),
         backgroundColor: Colors.blue[900],
         elevation: 0,
-        centerTitle: true,
+        centerTitle: false,
       ),
       backgroundColor: Colors.grey[200],
       body: ListView.builder(
           itemBuilder: (context, index){
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 1.5, horizontal: 4.0),
+              padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 4.0),
               child: Card(
                 child: ListTile(
                   onTap: (){

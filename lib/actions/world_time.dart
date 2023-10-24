@@ -4,12 +4,13 @@ import 'package:intl/intl.dart';
 
 class WorldTime {
   String location; // location name for the UI
-  String time; // time in that location
+  String time = ''; // time in that location
   String flag; //location flag, url to the asset
   String url; // url for the api
-  bool isDayTime; // true or false if daytime or not
+  bool isDayTime = false; // true or false if daytime or not
+  String dateString = '';
 
-  WorldTime ({this.location, this.flag, this.url});
+  WorldTime ({this.location = '', this.flag = '', this.url = ''});
 
   Future<void> getTime() async {
 
@@ -27,6 +28,8 @@ class WorldTime {
       isDayTime = (now.hour > 6 && now.hour < 20) ? true : false;
 
       time = DateFormat.jm().format(now);
+      dateString = DateFormat('yyyy-MM-dd').format(now);
+      // print('Date String: ' + dateString);
     } catch (e) {
       time = "Unable to get time";
       print("caught error: $e");

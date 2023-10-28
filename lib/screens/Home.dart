@@ -76,6 +76,19 @@ class _HomeState extends State<Home> {
                     style: TextStyle(
                         fontSize: 20, color: Colors.white70
                     ),
+                  ),
+                  SizedBox(height: 50),
+                  TextButton(
+                      onPressed: (){
+                        Navigator.pushReplacementNamed(context, '/carousel');
+                      },
+                      child: Text(
+                          'Go to Carousel',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold
+                        ),
+                      )
                   )
                 ],
               ),

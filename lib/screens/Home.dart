@@ -80,7 +80,7 @@ class _HomeState extends State<Home> {
                   SizedBox(height: 50),
                   TextButton(
                       onPressed: (){
-                        Navigator.pushReplacementNamed(context, '/carousel');
+                        Navigator.pushNamed(context, '/carousel');
                       },
                       child: Text(
                           'Go to Carousel',

@@ -34,7 +34,9 @@ class _CarouselScreenState extends State<CarouselScreen> {
                   Align(
                     alignment: Alignment.topRight,
                     child: TextButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.pushNamed(context, '/drawer');
+                      },
                       child: Text(
                         'Skip',
                         style: TextStyle( color: Colors.red[200], fontSize: 18 ),
@@ -92,6 +94,27 @@ class _CarouselScreenState extends State<CarouselScreen> {
                 ],
               ),
             ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.redAccent,
+            onPressed: (){
+              if(currentPage < mySliders.length - 1){
+
+                _pageController.nextPage(
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.easeOut
+                );
+
+              }else{
+
+                _pageController.previousPage(
+                    duration: Duration(milliseconds: 300),
+                    curve: Curves.easeOut
+                );
+              }
+
+            },
+            child: currentPage == mySliders.length - 1 ? Icon(Icons.arrow_back): Icon(Icons.arrow_forward),
           ),
         ),
       ),
